@@ -146,7 +146,7 @@
       el=$('#brickIdx'); if(el) el.textContent=Math.floor((qD-1)/3)+1;
       el=$('#brickDay'); if(el) el.textContent=((qD-1)%3)+1;
 
-      el=$('#lifeDays'); if(el) el.textContent = (dob ? Math.floor((ref-dob)/ms) : '—');
+      el=$('#lifeDays'); if(el) el.textContent = (dob ? (function(){ var now=new Date(); var tUTC=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()); var dobUTC=Date.UTC(Db.y,Db.m-1,Db.d); return Math.floor((tUTC-dobUTC)/ms); })() : '—');
 
       el=$('#doy'); if(el) el.textContent=doy;
       el=$('#ylen'); if(el) el.textContent=yl;
